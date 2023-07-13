@@ -25,3 +25,15 @@ Privacy policy analysis has long been a daunting task, often left untouched in t
 ## Working 
 ![working](https://github.com/MinatoNamikaze02/privacy-policy-analysis/blob/main/client/assets/working.png)
 
+## References
+[A Multidisciplinary Definition of Privacy Labels: The Story of Princess
+Privacy and the Seven Helpers? - Johanna Johansena,∗
+, Tore Pedersenb
+, Simone Fischer-Hübnerc
+, Christian Johansend
+, Gerardo Schneidere
+,
+Arnold Roosendaalf
+, Harald Zwingelbergg
+, Anders Jakob Sivesinda
+, Josef Nollh](https://arxiv.org/pdf/2012.01813.pdf)
