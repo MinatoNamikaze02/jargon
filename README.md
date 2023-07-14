@@ -12,6 +12,8 @@ This contextual understanding helps disambiguate potential ambiguities that may 
 
 This is but a primitive approach to the solution
 
+To put it precisely, the tool looks through the text, finds annotations using NER and gives the entire sentence the keyword is found in, the respective label. The text is then highlighted based on the label.
+
 ## Dependencies
 
 - Python (version 3.11.3)
