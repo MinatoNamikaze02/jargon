@@ -9,7 +9,7 @@ app = Flask(__name__)
 flask_cors.CORS(app, origins="*")
 
 # load the spacy model
-nlp = spacy.load("trained_ner_model")
+nlp = spacy.load("model")
 
 color_matrix = {
     "business": "$$",
