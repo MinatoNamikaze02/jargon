@@ -3,6 +3,10 @@
   <head>
     <title>Privacy Policy Analysis</title>
     <style>
+      @font-face {
+        font-family: "Buccaneer";
+        src: url("./fonts/buccaneer.ttf") format("truetype");
+      }
       body {
         font-family: Arial, sans-serif;
         margin: 0;
@@ -10,6 +14,7 @@
       }
 
       h1 {
+        font-family: "Buccaneer", sans-serif !important;
         text-align: center;
         margin-bottom: 20px;
       }
@@ -43,32 +48,53 @@
       }
 
       .highlight-business {
-        background-color: #ffd700;
+        background-color: #00bfff;
       }
 
       .highlight-law {
-        background-color: #87ceeb;
+        background-color: #ff7f50;
       }
 
       .highlight-regulations {
-        background-color: #8a2be2;
+        background-color: #ffd700;
       }
 
       .highlight-usability {
-        background-color: #00ff7f;
-      }
-
-      .highlight-education {
-        background-color: #ffa500;
-      }
-
-      .highlight-technology {
         background-color: #ff1493;
       }
 
-      .highlight-multidisciplinary {
-        background-color: #32cd32;
+      .highlight-education {
+        background-color: #00ced1;
       }
+
+      .highlight-technology {
+        background-color: #8a2be2;
+      }
+
+      .highlight-multidisciplinary {
+        background-color: #ff4500;
+      }
+
+      .highlight-privacy {
+        background-color: #00ffff;
+      }
+
+      .highlight-data {
+        background-color: #ffa500;
+      }
+
+      .highlight-policy {
+        background-color: #7fff00;
+      }
+
+      .highlight-cookies {
+        background-color: #008080;
+      }
+
+      .highlight-tracking {
+        background-color: #808080;
+      }
+
       .key-container {
         position: absolute;
         top: 20px;
@@ -94,6 +120,7 @@
       <form id="privacyPolicyForm">
         <div class="form-group">
           <label for="privacyPolicyText">Privacy Policy Text:</label>
+          <label id="errorText" style="color: red">The textarea is empty</label>
           <textarea
             id="privacyPolicyText"
             name="privacyPolicyText"
@@ -112,40 +139,66 @@
     ></div>
     <div class="key-container">
       <div class="key-item">
-        <div style="background-color: #ffd700" class="key-color"></div>
+        <div style="background-color: #00bfff" class="key-color"></div>
         <span>Business</span>
       </div>
       <div class="key-item">
-        <div style="background-color: #87ceeb" class="key-color"></div>
+        <div style="background-color: #ff7f50" class="key-color"></div>
         <span>Law</span>
       </div>
       <div class="key-item">
-        <div style="background-color: #8a2be2" class="key-color"></div>
+        <div style="background-color: #ffd700" class="key-color"></div>
         <span>Regulations</span>
       </div>
       <div class="key-item">
-        <div style="background-color: #00ff7f" class="key-color"></div>
+        <div style="background-color: #ff1493" class="key-color"></div>
         <span>Usability</span>
       </div>
       <div class="key-item">
-        <div style="background-color: #ffa500" class="key-color"></div>
+        <div style="background-color: #00ced1" class="key-color"></div>
         <span>Education</span>
       </div>
       <div class="key-item">
-        <div style="background-color: #ff1493" class="key-color"></div>
+        <div style="background-color: #8a2be2" class="key-color"></div>
         <span>Technology</span>
       </div>
       <div class="key-item">
-        <div style="background-color: #32cd32" class="key-color"></div>
+        <div style="background-color: #ff4500" class="key-color"></div>
         <span>Multidisciplinary</span>
       </div>
+      <div class="key-item">
+        <div style="background-color: #00ffff" class="key-color"></div>
+        <span>Privacy</span>
+      </div>
+      <div class="key-item">
+        <div style="background-color: #ffa500" class="key-color"></div>
+        <span>Data</span>
+      </div>
+      <div class="key-item">
+        <div style="background-color: #7fff00" class="key-color"></div>
+        <span>Policy</span>
+      </div>
+      <div class="key-item">
+        <div style="background-color: #008080" class="key-color"></div>
+        <span>Cookies</span>
+      </div>
+      <div class="key-item">
+        <div style="background-color: #808080" class="key-color"></div>
+        <span>Tracking</span>
+      </div>
     </div>
-
     <script>
+      document.getElementById("errorText").style.display = "none";
       document
         .getElementById("privacyPolicyForm")
         .addEventListener("submit", function (event) {
           event.preventDefault();
+          //return if no text is entered
+          if (!document.getElementById("privacyPolicyText").value) {
+            document.getElementById("errorText").style.display = "block";
+            return;
+          }
+          document.getElementById("errorText").style.display = "none";
           var privacyPolicyText =
             document.getElementById("privacyPolicyText").value;
 
@@ -196,7 +249,7 @@
         }
         resultHtml += sentenceAfter;
         resultContainer.innerHTML = resultHtml;
-      }
+      }      
     </script>
   </body>
 </html>
