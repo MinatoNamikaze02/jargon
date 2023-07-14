@@ -1,6 +1,6 @@
-# Privacy Policy Analysis using Named Entity Recognition (NER)
+# Jargon - A Privacy Policy Analysis model using Named Entity Recognition (NER)
 
-This project aims to analyze privacy policies using Named Entity Recognition (NER). The goal is to automatically extract relevant information from privacy policies, such as business-related topics, legal aspects, regulations, usability factors, educational aspects, technology, and multidisciplinary aspects.
+This project aims to analyze privacy policies using Named Entity Recognition (NER). The goal is to automatically extract relevant information from privacy policies, such as business-related topics, legal aspects, regulations, usability factors, educational aspects, technology, and multidisciplinary aspects to name a few.
 
 ## Project Overview
 
@@ -24,6 +24,10 @@ Privacy policy analysis has long been a daunting task, often left untouched in t
 
 ## Working 
 ![working](https://github.com/MinatoNamikaze02/privacy-policy-analysis/blob/main/client/assets/working.png)
+
+## Contribution
+Feel free to contribute to the project in any way!
+**Would appreciate contributions to the corpus :)**
 
 ## References
 [A Multidisciplinary Definition of Privacy Labels: The Story of Princess
