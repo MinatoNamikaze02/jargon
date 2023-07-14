@@ -1,0 +1,44 @@
+{
+  "lang":"en",
+  "name":"pipeline",
+  "version":"0.0.0",
+  "spacy_version":">=3.6.0,<3.7.0",
+  "description":"",
+  "author":"",
+  "email":"",
+  "url":"",
+  "license":"",
+  "spacy_git_version":"6fc153a26",
+  "vectors":{
+    "width":0,
+    "vectors":0,
+    "keys":0,
+    "name":null,
+    "mode":"default"
+  },
+  "labels":{
+    "ner":[
+      "business",
+      "cookies",
+      "data",
+      "education",
+      "law",
+      "multidisciplinary",
+      "policy",
+      "privacy",
+      "regulations",
+      "technology",
+      "tracking",
+      "usability"
+    ]
+  },
+  "pipeline":[
+    "ner"
+  ],
+  "components":[
+    "ner"
+  ],
+  "disabled":[
+
+  ]
+}
