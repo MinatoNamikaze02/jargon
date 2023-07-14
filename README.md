@@ -6,7 +6,9 @@ This project aims to analyze privacy policies using Named Entity Recognition (NE
 
 Privacy policies are essential documents that outline how an organization collects, uses, and protects user data. Analyzing these policies manually can be time-consuming and challenging due to their length and complex language. Therefore, this project leverages natural language processing techniques, specifically NER, to automate the analysis process.
 
-- This is but a primitive approact to the solution
+This contextual understanding helps disambiguate potential ambiguities that may arise from analyzing complex textual data.
+
+This is but a primitive approach to the solution
 
 ## Dependencies
 
