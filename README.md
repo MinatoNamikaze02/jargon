@@ -42,3 +42,5 @@ Arnold Roosendaalf
 
 [Privacy Policies over Time: Curation and Analysis of a Million-Document Dataset
 Ryan Amos, Gunes Acar, Eli Lucherini, Mihir Kshirsagar, Arvind Narayanan, Jonathan Mayer](https://arxiv.org/abs/2008.09159)
+
+good day :)
