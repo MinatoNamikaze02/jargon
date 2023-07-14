@@ -14,11 +14,6 @@ Privacy policies are essential documents that outline how an organization collec
 - spaCy (version 3.6.0)
 - pandas (version 2.0.1)
 
-## Upcoming
-
-- Better UI
-- Definitely a more expanded corpus well accomodating more use cases
-
 ## Remarks
 Privacy policy analysis has long been a daunting task, often left untouched in the vast realm of unread legal jargon. It's a place where the eyes of the most enthusiastic readers tend to glaze over, and where even the most patient souls lose hope. But fear not, for our Privacy Policy Analysis using Named Entity Recognition (NER) is here to save the day!
 
@@ -41,3 +36,7 @@ Arnold Roosendaalf
 , Harald Zwingelbergg
 , Anders Jakob Sivesinda
 , Josef Nollh](https://arxiv.org/pdf/2012.01813.pdf)
+
+
+[Privacy Policies over Time: Curation and Analysis of a Million-Document Dataset
+Ryan Amos, Gunes Acar, Eli Lucherini, Mihir Kshirsagar, Arvind Narayanan, Jonathan Mayer](https://arxiv.org/abs/2008.09159)
