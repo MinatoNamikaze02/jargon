@@ -1,5 +1,7 @@
 # Jargon - A Privacy Policy Analysis model using Named Entity Recognition (NER)
 
+[Try it out](https://jargon-privacy-policy-analyzer.onrender.com)
+
 This project aims to analyze privacy policies using Named Entity Recognition (NER). The goal is to automatically extract relevant information from privacy policies, such as business-related topics, legal aspects, regulations, usability factors, educational aspects, technology, and multidisciplinary aspects to name a few.
 
 ## Project Overview
@@ -9,6 +11,8 @@ Privacy policies are essential documents that outline how an organization collec
 This contextual understanding helps disambiguate potential ambiguities that may arise from analyzing complex textual data.
 
 This is but a primitive approach to the solution
+
+To put it precisely, the tool looks through the text, finds annotations using NER and gives the entire sentence the keyword is found in, the respective label. The text is then highlighted based on the label.
 
 ## Dependencies
 
@@ -21,10 +25,6 @@ Privacy policy analysis has long been a daunting task, often left untouched in t
 
 ## Working 
 ![working](https://github.com/MinatoNamikaze02/privacy-policy-analysis/blob/main/client/assets/working.png)
-
-## Contribution
-Feel free to contribute to the project in any way!
-**Would appreciate contributions to the corpus :)**
 
 ## References
 [A Multidisciplinary Definition of Privacy Labels: The Story of Princess
@@ -42,3 +42,5 @@ Arnold Roosendaalf
 
 [Privacy Policies over Time: Curation and Analysis of a Million-Document Dataset
 Ryan Amos, Gunes Acar, Eli Lucherini, Mihir Kshirsagar, Arvind Narayanan, Jonathan Mayer](https://arxiv.org/abs/2008.09159)
+
+good day :)
