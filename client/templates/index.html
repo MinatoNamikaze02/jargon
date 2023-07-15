@@ -56,6 +56,7 @@
         cursor: pointer;
         font-size: 16px;
         transition: background-color 0.3s ease;
+        transition: display 1s ease;
       }
 
       .submit-btn:hover {
@@ -184,6 +185,25 @@
       .social-links a:hover {
         color: #007bff;
       }
+      .loader {
+        border: 6px solid #f3f3f3;
+        border-top: 6px solid #3498db;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        animation: spin 2s linear infinite;
+        margin: 0 auto;
+        margin-top: 50px;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
     </style>
   </head>
   <body>
@@ -205,6 +225,7 @@
           <button type="submit" class="submit-btn">
             Analyze Privacy Policy
           </button>
+          <div id="loading" class="loader" style="display: none"></div>
         </div>
       </form>
     </div>
@@ -266,7 +287,10 @@
     <footer style="color: #000; padding: 10px; text-align: center">
       <div class="user-card">
         <div class="user-image">
-          <img src="https://avatars.githubusercontent.com/u/85065053?v=4" alt="Profile Picture" />
+          <img
+            src="https://avatars.githubusercontent.com/u/85065053?v=4"
+            alt="Profile Picture"
+          />
         </div>
         <h2 class="user-name">Arjhun S</h2>
         <div class="social-links">
@@ -301,6 +325,10 @@
         .getElementById("privacyPolicyForm")
         .addEventListener("submit", function (event) {
           event.preventDefault();
+          var loadingAnimation = document.getElementById("loading");
+          var button = document.querySelector(".submit-btn");
+          button.style.display = "none";
+          loadingAnimation.style.display = "block";
           //return if no text is entered
           if (!document.getElementById("privacyPolicyText").value) {
             document.getElementById("errorText").style.display = "block";
@@ -318,7 +346,11 @@
             body: JSON.stringify({ text: privacyPolicyText }),
           })
             .then((response) => response.json())
-            .then((response) => displayResult(response));
+            .then((response) => displayResult(response))
+            .finally(() => {
+              loadingAnimation.style.display = "none"; // Hide the loading animation
+              button.style.display = "block";
+            });
         });
 
       function displayResult(response) {
