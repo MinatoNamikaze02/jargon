@@ -11,16 +11,6 @@ flask_cors.CORS(app, origins="*")
 # load the spacy model
 nlp = spacy.load("model")
 
-color_matrix = {
-    "business": "$$",
-    "law": "##",
-    "regulations": "@@",
-    "usability": "^^",
-    "education": "&&",
-    "technology": "**",
-    "multidisciplinary": "<<",
-}
-
 def predict_labels(text) -> list:
     doc = nlp(text)
     entities = [(ent.text, ent.label_) for ent in doc.ents]
@@ -50,9 +40,7 @@ def api():
     text = data['text']
     entities = predict_labels(text)
     sentences = get_the_sentences(entities, text)
-    # return the origin text but with the selected sentences highlighted based on the color matrix
     for sentence, label in sentences.items():
-        print(sentence)
         text = text.replace(sentence, f"<{label}>{sentence}</{label}>")
     return jsonify({'text': text})
     

@@ -1,25 +1,15 @@
 # a flask server that calls the spacy model and returns the results
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import spacy
 import flask_cors
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 flask_cors.CORS(app, origins="*")
 
 # load the spacy model
 nlp = spacy.load("model")
-
-color_matrix = {
-    "business": "$$",
-    "law": "##",
-    "regulations": "@@",
-    "usability": "^^",
-    "education": "&&",
-    "technology": "**",
-    "multidisciplinary": "<<",
-}
 
 def predict_labels(text) -> list:
     doc = nlp(text)
@@ -39,6 +29,10 @@ def get_the_sentences(entities: list, text: str) -> dict:
         res[text[start:end].strip()] = entity[1]
     return res
 
+@app.route('/', methods=['GET'])
+def index():
+    return render_template('index.html')
+
 # create a route for the server
 @app.route('/api', methods=['POST'])
 def api():
@@ -46,9 +40,7 @@ def api():
     text = data['text']
     entities = predict_labels(text)
     sentences = get_the_sentences(entities, text)
-    # return the origin text but with the selected sentences highlighted based on the color matrix
     for sentence, label in sentences.items():
-        print(sentence)
         text = text.replace(sentence, f"<{label}>{sentence}</{label}>")
     return jsonify({'text': text})
     

@@ -12,6 +12,7 @@ conn = sqlite3.connect(RELEASE_DB_NAME)
 policy_texts_df = pd.read_sql_query("SELECT * FROM policy_texts", conn)
 simply_the_text = policy_texts_df[["id", "policy_text"]]
 simply_the_text.head()
+# choose a subset of the policies to label (the more, the longer it takes to generate the model)
 simply_the_text = simply_the_text[:500]
 # use labels.json to label policies in simply_the_text dataframe
 import json
