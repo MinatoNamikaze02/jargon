@@ -60,8 +60,4 @@ Jargon is licensed under the MIT License. See the [LICENSE](LICENSE) file for mo
 
 Special thanks to [Ryan B. Amos](mailto:rbamos@cs.princeton.edu) for providing access to their dataset :)
 
-## Contact
-
-- Arjhun S - [email](mailto:arjunsreedar26@gmail.com)
-
 ---
