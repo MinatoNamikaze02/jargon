@@ -1,47 +1,65 @@
 # Jargon - A Privacy Policy Analysis model using Named Entity Recognition (NER)
 
-[Try it out](https://jargon-privacy-policy-analyzer.onrender.com)
-The server runs on a free server. Expect slow response times.
-
-This project aims to analyze privacy policies using Named Entity Recognition (NER). The goal is to automatically extract relevant information from privacy policies, such as business-related topics, legal aspects, regulations, usability factors, educational aspects, technology, and multidisciplinary aspects to name a few.
+## Table of Contents
+- [Project Overview](#project-overview)
+- [Dependencies](#dependencies)
+- [Getting Started](#getting-started)
+- [How to Use](#how-to-use)
+- [License](#license)
+- [References](#references)
+- [Contact](#contact)
 
 ## Project Overview
 
 Privacy policies are essential documents that outline how an organization collects, uses, and protects user data. Analyzing these policies manually can be time-consuming and challenging due to their length and complex language. Therefore, this project leverages natural language processing techniques, specifically NER, to automate the analysis process.
 
+This project aims to analyze privacy policies using Named Entity Recognition (NER). The goal is to automatically extract relevant information from privacy policies, such as business-related topics, legal aspects, regulations, usability factors, educational aspects, technology, and multidisciplinary aspects to name a few.
+
 This contextual understanding helps disambiguate potential ambiguities that may arise from analyzing complex textual data.
 
 This is but a primitive approach to the solution
 
-To put it precisely, the tool looks through the text, finds annotations using NER and gives the entire sentence the keyword is found in, the respective label. The text is then highlighted based on the label.
+The key features of Jargon include:
+- Named Entity Recognition (NER) for contextually understanding privacy policies.
+- Highlighting of sections of possible importance (does not guarantee extraction of all relevant sections).
 
 ## Dependencies
 
-- Python (version 3.11.3)
 - spaCy (version 3.6.0)
-- pandas (version 2.0.1)
+- Flask (version 2.0.1)
 
-## Remarks
-Privacy policy analysis has long been a daunting task, often left untouched in the vast realm of unread legal jargon. It's a place where the eyes of the most enthusiastic readers tend to glaze over, and where even the most patient souls lose hope. But fear not, for our Privacy Policy Analysis using Named Entity Recognition (NER) is here to save the day!
+## Getting Started
 
-## Working 
-![working](https://github.com/MinatoNamikaze02/privacy-policy-analysis/blob/main/client/assets/working.png)
+To get started with Jargon, follow these steps:
+
+```
+// clone
+git clone https://github.com/your_username/jargon.git
+
+// requirements
+pip install -r requirements.txt
+
+// run
+python server.py
+```
+
+Open up ```http://127.0.0.1:5050/```
+
+## How to Use
+
+Just go to this [website](https://jargon-privacy-policy-analyzer.onrender.com) (The server runs on a free tier service. Expect slow response times :|)
+
+## License
+
+Jargon is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ## References
-[A Multidisciplinary Definition of Privacy Labels: The Story of Princess
-Privacy and the Seven Helpers? - Johanna Johansena,∗
-, Tore Pedersenb
-, Simone Fischer-Hübnerc
-, Christian Johansend
-, Gerardo Schneidere
-,
-Arnold Roosendaalf
-, Harald Zwingelbergg
-, Anders Jakob Sivesinda
-, Josef Nollh](https://arxiv.org/pdf/2012.01813.pdf)
 
+- [A Multidisciplinary Definition of Privacy Labels: The Story of Princess Privacy and the Seven Helpers? - Johanna Johansena,∗ , Tore Pedersenb , Simone Fischer-Hübnerc , Christian Johansend , Gerardo Schneidere , Arnold Roosendaalf , Harald Zwingelbergg , Anders Jakob Sivesinda , Josef Nollh]
+- [Privacy Policies over Time: Curation and Analysis of a Million-Document Dataset Ryan Amos, Gunes Acar, Eli Lucherini, Mihir Kshirsagar, Arvind Narayanan, Jonathan Mayer]
 
-[Privacy Policies over Time: Curation and Analysis of a Million-Document Dataset
-Ryan Amos, Gunes Acar, Eli Lucherini, Mihir Kshirsagar, Arvind Narayanan, Jonathan Mayer](https://arxiv.org/abs/2008.09159)
+## Contact
 
-good day :)
+- Arjhun S - [email](mailto:arjunsreedar26@gmail.com)
+
+---
