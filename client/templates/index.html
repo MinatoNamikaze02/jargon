@@ -361,8 +361,8 @@
         var result = response.text;
         var resultHtml = "";
         var regex = /<[^>]*>([^<]*)<\/[^>]*>/g;
-        var match;
         var lastIndex = 0;
+        var match;
 
         while ((match = regex.exec(result)) !== null) {
           var sentence = match[1];
@@ -373,8 +373,8 @@
           var tagEndIndex = regex.lastIndex;
           var sentenceStartIndex = tagStartIndex + tag.length;
           var sentenceEndIndex = tagEndIndex - tag.length - 1;
-          var sentenceBefore = result.substring(lastIndex, sentenceStartIndex);
-          var sentenceAfter = result.substring(sentenceEndIndex, result.length);
+          var sentenceBefore = result.substring(lastIndex, tagStartIndex);
+          var sentenceAfter = result.substring(tagEndIndex, result.length);
           resultHtml +=
             sentenceBefore +
             "<span class='" +
@@ -382,9 +382,11 @@
             "'>" +
             sentence +
             "</span>";
-          lastIndex = sentenceEndIndex;
+          lastIndex = tagEndIndex;
         }
-        resultHtml += sentenceAfter;
+
+        // Add any remaining text after the last tag
+        resultHtml += result.substring(lastIndex, result.length);
         resultContainer.innerHTML = resultHtml;
       }
     </script>
