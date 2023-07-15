@@ -56,6 +56,7 @@ Jargon is licensed under the MIT License. See the [LICENSE](LICENSE) file for mo
 ## References
 
 [A Multidisciplinary Definition of Privacy Labels: The Story of Princess Privacy and the Seven Helpers? - Johanna Johansena,∗ , Tore Pedersenb , Simone Fischer-Hübnerc , Christian Johansend , Gerardo Schneidere , Arnold Roosendaalf , Harald Zwingelbergg , Anders Jakob Sivesinda , Josef Nollh](https://arxiv.org/pdf/2012.01813.pdf)
+
 [Privacy Policies over Time: Curation and Analysis of a Million-Document Dataset Ryan Amos, Gunes Acar, Eli Lucherini, Mihir Kshirsagar, Arvind Narayanan, Jonathan Mayer](https://arxiv.org/abs/2008.09159)
 
 Special thanks to [Ryan B. Amos](mailto:rbamos@cs.princeton.edu) for providing access to their dataset :)
