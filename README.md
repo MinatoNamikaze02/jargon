@@ -1,14 +1,5 @@
 # Jargon - A Privacy Policy Analysis model using Named Entity Recognition (NER)
 
-## Table of Contents
-- [Project Overview](#project-overview)
-- [Dependencies](#dependencies)
-- [Getting Started](#getting-started)
-- [How to Use](#how-to-use)
-- [License](#license)
-- [References](#references)
-- [Contact](#contact)
-
 ## Project Overview
 
 Privacy policies are essential documents that outline how an organization collects, uses, and protects user data. Analyzing these policies manually can be time-consuming and challenging due to their length and complex language. Therefore, this project leverages natural language processing techniques, specifically NER, to automate the analysis process.
@@ -33,14 +24,17 @@ The key features of Jargon include:
 To get started with Jargon, follow these steps:
 
 ```
-// clone
-git clone https://github.com/your_username/jargon.git
+//clone
+>> git clone https://github.com/your_username/jargon.git
+
+// move to client dir under jargon
+>> cd .../jargon/client
 
 // requirements
-pip install -r requirements.txt
+>> pip install -r requirements.txt
 
 // run
-python server.py
+>> python server.py
 ```
 
 Open up ```http://127.0.0.1:5050/```
