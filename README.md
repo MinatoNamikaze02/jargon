@@ -1,4 +1,7 @@
-# Jargon - A Privacy Policy Analysis model using Named Entity Recognition (NER)
+<div align="center">
+<img src="https://github.com/MinatoNamikaze02/jargon/blob/main/client/assets/title.png" height="100">
+
+A Project that effectively analyzes Privacy-Policy/Terms-&-Conditions.
 
 ## Project Overview
 
