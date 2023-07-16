@@ -6,7 +6,7 @@
     <style>
       @font-face {
         font-family: "Bourton";
-        src: url("/static/fonts/BourtonV1.ttf") format("truetype"); 
+        src: url("/static/fonts/BourtonV1.ttf") format("truetype");
       }
       body {
         font-family: Arial, sans-serif;
@@ -333,15 +333,15 @@
         .getElementById("privacyPolicyForm")
         .addEventListener("submit", function (event) {
           event.preventDefault();
-          var loadingAnimation = document.getElementById("loading");
-          var button = document.querySelector(".submit-btn");
-          button.style.display = "none";
-          loadingAnimation.style.display = "block";
           //return if no text is entered
           if (!document.getElementById("privacyPolicyText").value) {
             document.getElementById("errorText").style.display = "block";
             return;
           }
+          var loadingAnimation = document.getElementById("loading");
+          var button = document.querySelector(".submit-btn");
+          button.style.display = "none";
+          loadingAnimation.style.display = "block";
           document.getElementById("errorText").style.display = "none";
           var privacyPolicyText =
             document.getElementById("privacyPolicyText").value;
