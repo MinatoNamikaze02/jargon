@@ -2,8 +2,6 @@
 <img src="https://github.com/MinatoNamikaze02/jargon/blob/main/client/assets/title.png" height="100">
 </div>
 
-A Project that effectively analyzes Privacy-Policy/Terms-&-Conditions.
-
 ## Project Overview
 
 Privacy policies are essential documents that outline how an organization collects, uses, and protects user data. Analyzing these policies manually can be time-consuming and challenging due to their length and complex language. Therefore, this project leverages natural language processing techniques, specifically NER, to automate the analysis process.
