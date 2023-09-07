@@ -27,7 +27,7 @@ To get started with Jargon, follow these steps:
 
 ```
 //clone
->> git clone https://github.com/your_username/jargon.git
+>> git clone https://github.com/MinatoNamikaze02/jargon.git
 
 // move to client dir under jargon
 >> cd .../jargon/client
