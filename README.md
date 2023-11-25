@@ -1,5 +1,5 @@
 <div align="center">
-  <p style="height:64px;width:64px;"><i>JARGON</i></p>
+  # JARGON
 </div>
 
 ## Project Overview
