@@ -1,6 +1,4 @@
-<div align="center">
-  # JARGON
-</div>
+# JARGON
 
 ## Project Overview
 
