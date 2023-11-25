@@ -1,5 +1,5 @@
 <div align="center">
-<i>JARGON</i>
+<img src="https://github.com/MinatoNamikaze02/jargon/blob/main/client/assets/title.png" />
 </div>
 
 ## Project Overview
