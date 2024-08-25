@@ -41,7 +41,9 @@ Open up ```http://127.0.0.1:5050/```
 
 ## How to Use
 
-Just go to this [website](https://jargon-privacy-policy-analyzer.onrender.com) (The server runs on a free tier service. Expect slow response times :|)
+Just go to this [website](https://jargon-privacy-policy-analyzer.onrender.com) (The server runs on a free tier service. Expect slow response times :|
+
+<img width="1710" alt="Screenshot 2024-08-25 at 19 50 10" src="https://github.com/user-attachments/assets/d7bca1d5-3b52-4e9e-b96a-f8a3c5470f35">
 
 ## License
 
