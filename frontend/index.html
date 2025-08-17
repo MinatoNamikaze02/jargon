@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy NER Analyzer</title>
+    <style>
+        :root {
+            --primary-bg: #ffffff;
+            --secondary-bg: #f8fafc;
+            --text-primary: #1a202c;
+            --text-secondary: #4a5568;
+            --border-color: #e2e8f0;
+            --accent-primary: #667eea;
+            --accent-secondary: #764ba2;
+            --success: #48bb78;
+            --warning: #ed8936;
+            --error: #f56565;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --gradient: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+        }
+
+        [data-theme="dark"] {
+            --primary-bg: #1a202c;
+            --secondary-bg: #2d3748;
+            --text-primary: #f7fafc;
+            --text-secondary: #cbd5e0;
+            --border-color: #4a5568;
+            --accent-primary: #667eea;
+            --accent-secondary: #764ba2;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--gradient);
+            padding: 20px 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .header-controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .theme-toggle {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+        }
+
+        /* Main Content */
+        .main {
+            padding: 40px 0;
+            min-height: calc(100vh - 80px);
+        }
+
+        .input-section {
+            background: var(--secondary-bg);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .textarea {
+            width: 100%;
+            min-height: 200px;
+            padding: 15px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 14px;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            resize: vertical;
+            transition: all 0.3s ease;
+        }
+
+        .textarea:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 14px;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-secondary {
+            background: var(--secondary-bg);
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--border-color);
+        }
+
+        /* Results Section */
+        .results-section {
+            background: var(--secondary-bg);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            display: none;
+        }
+
+        .results-section.show {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Entity Summary */
+        .entity-summary {
+            margin-bottom: 30px;
+        }
+
+        .entity-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: var(--primary-bg);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent-primary);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        /* Entity Filters */
+        .entity-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .entity-filter {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            background: var(--primary-bg);
+            color: var(--text-secondary);
+        }
+
+        .entity-filter.active {
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .entity-filter:hover {
+            transform: scale(1.05);
+        }
+
+        /* Entity Colors */
+        .entity-PERSON, .entity-filter[data-entity="PERSON"].active { background: #f56565; border-color: #f56565; }
+        .entity-ORG, .entity-filter[data-entity="ORG"].active { background: #48bb78; border-color: #48bb78; }
+        .entity-GPE, .entity-filter[data-entity="GPE"].active { background: #667eea; border-color: #667eea; }
+        .entity-DATE, .entity-filter[data-entity="DATE"].active { background: #ed8936; border-color: #ed8936; }
+        .entity-MONEY, .entity-filter[data-entity="MONEY"].active { background: #38b2ac; border-color: #38b2ac; }
+        .entity-PRODUCT, .entity-filter[data-entity="PRODUCT"].active { background: #9f7aea; border-color: #9f7aea; }
+        .entity-LAW, .entity-filter[data-entity="LAW"].active { background: #ec4899; border-color: #ec4899; }
+        .entity-EMAIL, .entity-filter[data-entity="EMAIL"].active { background: #06b6d4; border-color: #06b6d4; }
+
+        /* Policy Text */
+        .policy-text {
+            background: var(--primary-bg);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .sentence {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .sentence:hover {
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+        .sentence.hidden {
+            display: none;
+        }
+
+        .entity-highlight {
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-weight: 500;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .entity-highlight:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .entity-tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--text-primary);
+            color: var(--primary-bg);
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .entity-highlight:hover .entity-tooltip {
+            opacity: 1;
+            transform: translateX(-50%) translateY(-5px);
+        }
+
+        /* Loading */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--border-color);
+            border-top: 4px solid var(--accent-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .entity-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .entity-filters {
+                justify-content: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .animate-pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">🔍 Privacy Policy Analyzer</a>
+                <div class="header-controls">
+                    <button class="theme-toggle" onclick="toggleTheme()">
+                        <span id="theme-icon">🌙</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="input-section">
+                <h2 class="section-title">Analyze Privacy Policy</h2>
+                <div class="form-group">
+                    <label class="form-label" for="policy-text">Privacy Policy Text</label>
+                    <textarea 
+                        id="policy-text" 
+                        class="textarea" 
+                        placeholder="Paste your privacy policy text here for entity analysis..."
+                    ></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="model-path">Model Path (optional)</label>
+                    <input 
+                        id="model-path" 
+                        class="input" 
+                        type="text" 
+                        value="../model" 
+                        placeholder="Path to trained NER model"
+                    />
+                </div>
+                <button class="btn" onclick="analyzePolicy()">
+                    <span>🔍</span>
+                    Analyze Policy
+                </button>
+            </div>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Analyzing privacy policy text...</p>
+            </div>
+
+            <div class="results-section" id="results">
+                <h2 class="section-title">Analysis Results</h2>
+                
+                <div class="entity-summary">
+                    <div class="entity-stats" id="entity-stats">
+                        <!-- Stats will be populated here -->
+                    </div>
+                    
+                    <div class="entity-filters" id="entity-filters">
+                        <!-- Filters will be populated here -->
+                    </div>
+                </div>
+
+                <div class="policy-text" id="policy-display">
+                    <!-- Analyzed text will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let currentData = null;
+        let activeFilters = new Set();
+
+        // Theme management
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+            
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                themeIcon.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                themeIcon.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Initialize theme
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.body.setAttribute('data-theme', 'dark');
+                document.getElementById('theme-icon').textContent = '☀️';
+            }
+        }
+
+        // Analyze policy
+        async function analyzePolicy() {
+            const text = document.getElementById('policy-text').value.trim();
+            const modelPath = document.getElementById('model-path').value.trim();
+            
+            if (!text) {
+                alert('Please enter privacy policy text to analyze.');
+                return;
+            }
+
+            const loading = document.getElementById('loading');
+            const results = document.getElementById('results');
+            
+            loading.classList.add('show');
+            results.classList.remove('show');
+
+            try {
+                const response = await fetch('/analyze', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        text: text,
+                        model_path: modelPath
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                currentData = data;
+                displayResults(data);
+                
+            } catch (error) {
+                console.error('Analysis failed:', error);
+                alert('Analysis failed. Please check your model path and try again.');
+            } finally {
+                loading.classList.remove('show');
+            }
+        }
+
+        // Display results
+        function displayResults(data) {
+            displayStats(data);
+            displayFilters(data);
+            displayPolicyText(data);
+            
+            document.getElementById('results').classList.add('show');
+        }
+
+        // Display statistics
+        function displayStats(data) {
+            const statsContainer = document.getElementById('entity-stats');
+            const entityCounts = data.entity_summary;
+            
+            let statsHTML = `
+                <div class="stat-card">
+                    <div class="stat-value">${data.total_entities}</div>
+                    <div class="stat-label">Total Entities</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">${data.sentences.length}</div>
+                    <div class="stat-label">Sentences</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">${Object.keys(entityCounts).length}</div>
+                    <div class="stat-label">Entity Types</div>
+                </div>
+            `;
+            
+            statsContainer.innerHTML = statsHTML;
+        }
+
+        // Display entity filters
+        function displayFilters(data) {
+            const filtersContainer = document.getElementById('entity-filters');
+            const entityCounts = data.entity_summary;
+            
+            let filtersHTML = `
+                <div class="entity-filter ${activeFilters.size === 0 ? 'active' : ''}" 
+                     onclick="toggleFilter('all')">
+                    All Entities (${data.total_entities})
+                </div>
+            `;
+            
+            Object.entries(entityCounts).forEach(([entity, count]) => {
+                const isActive = activeFilters.has(entity);
+                filtersHTML += `
+                    <div class="entity-filter ${isActive ? 'active' : ''}" 
+                         data-entity="${entity}"
+                         onclick="toggleFilter('${entity}')">
+                        ${entity} (${count})
+                    </div>
+                `;
+            });
+            
+            filtersContainer.innerHTML = filtersHTML;
+        }
+
+        // Display policy text with entity highlighting
+        function displayPolicyText(data) {
+            const container = document.getElementById('policy-display');
+            let html = '';
+            
+            data.sentences.forEach((sentence, index) => {
+                const hasRelevantEntities = activeFilters.size === 0 || 
+                    sentence.entities.some(entity => activeFilters.has(entity.label));
+                
+                const visibilityClass = hasRelevantEntities ? '' : 'hidden';
+                
+                let sentenceHTML = sentence.text;
+                
+                // Sort entities by start position (descending) to avoid offset issues
+                const sortedEntities = [...sentence.entities].sort((a, b) => b.start - a.start);
+                
+                sortedEntities.forEach(entity => {
+                    const shouldHighlight = activeFilters.size === 0 || activeFilters.has(entity.label);
+                    
+                    if (shouldHighlight) {
+                        const start = entity.start - sentence.start;
+                        const end = entity.end - sentence.start;
+                        const originalText = sentenceHTML.substring(start, end);
+                        
+                        const highlightHTML = `
+                            <span class="entity-highlight entity-${entity.label}">
+                                ${originalText}
+                                <div class="entity-tooltip">
+                                    ${entity.label} (${(entity.confidence * 100).toFixed(1)}%)
+                                </div>
+                            </span>
+                        `;
+                        
+                        sentenceHTML = sentenceHTML.substring(0, start) + 
+                                     highlightHTML + 
+                                     sentenceHTML.substring(end);
+                    }
+                });
+                
+                html += `<div class="sentence ${visibilityClass}">${sentenceHTML}</div>`;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        // Toggle entity filter
+        function toggleFilter(entityType) {
+            if (entityType === 'all') {
+                activeFilters.clear();
+            } else {
+                if (activeFilters.has(entityType)) {
+                    activeFilters.delete(entityType);
+                } else {
+                    activeFilters.add(entityType);
+                }
+            }
+            
+            if (currentData) {
+                displayFilters(currentData);
+                displayPolicyText(currentData);
+            }
+        }
+
+        // Add sample text for demo
+        function addSampleText() {
+            const sampleText = `
+We collect personal information when you use our services. This includes your name, email address, and location data. 
+We may share this information with our business partners including Google Inc. and Facebook Inc. 
+Your data is stored securely and we comply with GDPR regulations. 
+We retain your information for up to 5 years or as required by law. 
+You can contact us at privacy@company.com for any questions about this policy.
+For more information, visit our website at https://company.com or call us at +1-555-0123.
+This policy is effective as of January 1, 2024.
+            `.trim();
+            
+            document.getElementById('policy-text').value = sampleText;
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            initTheme();
+            
+            // Add sample text button
+            const inputSection = document.querySelector('.input-section');
+            const sampleBtn = document.createElement('button');
+            sampleBtn.className = 'btn btn-secondary';
+            sampleBtn.innerHTML = '<span>📄</span> Load Sample Text';
+            sampleBtn.style.marginLeft = '10px';
+            sampleBtn.onclick = addSampleText;
+            
+            const analyzeBtn = inputSection.querySelector('.btn');
+            analyzeBtn.parentNode.insertBefore(sampleBtn, analyzeBtn.nextSibling);
+        });
+
+        // Handle enter key in textarea
+        document.getElementById('policy-text').addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'Enter') {
+                analyzePolicy();
+            }
+        });
+    </script>
+</body>
+</html>
