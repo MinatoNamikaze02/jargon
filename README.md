@@ -23,10 +23,10 @@ export OPENAI_API_KEY=...
 
 ```bash
 poetry run python -m tnc annotate \
-  --sqlite-path /Users/arjuns/Downloads/tnc/release_db.sqlite \
-  --entities-path /Users/arjuns/Downloads/tnc/entities.json \
+  --sqlite-path <path_to_sqlite> \
+  --entities-path <path_to_entities> \
   --limit 5000 \
-  --out /Users/arjuns/Downloads/tnc/artifacts/annos \
+  --out <path_to_out> \
   --model gpt-4o-mini
 ```
 
@@ -34,17 +34,17 @@ poetry run python -m tnc annotate \
 
 ```bash
 poetry run python -m tnc prepare \
-  --annotations /Users/arjuns/Downloads/tnc/artifacts/annos/annotations.jsonl \
-  --entities-path /Users/arjuns/Downloads/tnc/entities.json \
-  --train-out /Users/arjuns/Downloads/tnc/artifacts/data
+  --annotations <path_to_annottations> \
+  --entities-path <path_to_entities> \
+  --train-out <path_to_out>
 ```
 
 5) Train
 
 ```bash
 poetry run python -m tnc train \
-  --prepared /Users/arjuns/Downloads/tnc/artifacts/data/train.json \
-  --output /Users/arjuns/Downloads/tnc/artifacts/model \
+  --prepared <path_to_train_json> \
+  --output <path_to_output> \
   --base-model bert-base-cased \
   --epochs 3 \
   --batch-size 8
@@ -55,7 +55,7 @@ poetry run python -m tnc train \
 ```bash
 poetry run python -m tnc predict \
   --text "We use cookies and third-party analytics to track usage." \
-  --model-dir /Users/arjuns/Downloads/tnc/artifacts/model
+  --model-dir <path_to_model>
 ```
 
 ## License
