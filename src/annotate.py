@@ -11,14 +11,23 @@ from openai import OpenAI
 from .data import chunk_text_with_offsets
 
 
-ANNOTATION_SYSTEM_PROMPT = (
+BASIC = (
     "You are an expert legal NER tagger.\n"
     "You are given text and a list of entity categories.\n"
-    "Extract spans ONLY for the requested categories.\n"
-    "Spans must be non-overlapping. You do NOT need to cover the entire text.\n"
-    "Return a strict JSON object with key 'entities' mapping category -> list of spans.\n"
-    "Each span must be {\"text\": str, \"start\": int, \"end\": int}.\n"
+    "Return a strict JSON object with the entity and text as key-value pairs.\n"
+    "Be very intelligent in your entity extraction"
 )
+
+DONOTDO = (
+    "You do not need to return O tags"
+    "You do not need to return the start and end of the entity."
+)
+
+ADDSIMILAR = (
+    "If possible, throw in similar words that are related to the entity and currently inputted policy text."
+)
+
+ANNOTATION_SYSTEM_PROMPT = BASIC + "\n" + DONOTDO + "\n" + ADDSIMILAR
 
 def _hash_key(text: str, entities: List[str], model: str) -> str:
     m = hashlib.sha1()

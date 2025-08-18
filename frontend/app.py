@@ -24,7 +24,7 @@ app.mount("/static", StaticFiles(directory=Path(__file__).parent / "static"), na
 
 class PolicyRequest(BaseModel):
     text: str
-    model_path: str = "../model"  # Default model path
+    model_path: str = "/Users/arjuns/Downloads/tnc/model"  # Default model path
 
 
 class EntitySpan(BaseModel):

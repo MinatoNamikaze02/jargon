@@ -3,34 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy NER Analyzer</title>
+    <title>Jargon - Policy Text Analyzer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-bg: #ffffff;
-            --secondary-bg: #f8fafc;
-            --text-primary: #1a202c;
-            --text-secondary: #4a5568;
-            --border-color: #e2e8f0;
-            --accent-primary: #667eea;
-            --accent-secondary: #764ba2;
-            --success: #48bb78;
-            --warning: #ed8936;
-            --error: #f56565;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            --gradient: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-        }
-
-        [data-theme="dark"] {
-            --primary-bg: #1a202c;
-            --secondary-bg: #2d3748;
-            --text-primary: #f7fafc;
-            --text-secondary: #cbd5e0;
-            --border-color: #4a5568;
-            --accent-primary: #667eea;
-            --accent-secondary: #764ba2;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            --secondary-bg: #fafafa;
+            --text-primary: #2c2c2c;
+            --text-secondary: #666666;
+            --border-color: #e5e5e5;
+            --accent: #007acc;
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
         * {
@@ -44,291 +28,194 @@
             background: var(--primary-bg);
             color: var(--text-primary);
             line-height: 1.6;
-            transition: all 0.3s ease;
+            font-weight: 300;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         /* Header */
         .header {
-            background: var(--gradient);
-            padding: 20px 0;
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            padding: 32px 0;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
+            
         }
 
         .logo {
-            color: white;
-            font-size: 24px;
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
             font-weight: 700;
+            color: var(--text-primary);
             text-decoration: none;
+            letter-spacing: -0.02em;
+            margin: 0 auto;
         }
 
-        .header-controls {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .theme-toggle {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
+        .github-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 400;
+            transition: color 0.2s ease;
+            border-radius: 30px;
+            background: var(--accent);
+            padding: 10px;
             color: white;
-            padding: 8px 12px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 16px;
-        }
-
-        .theme-toggle:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-1px);
         }
 
         /* Main Content */
         .main {
-            padding: 40px 0;
-            min-height: calc(100vh - 80px);
+            padding: 64px 0;
+            min-height: calc(100vh - 160px);
         }
 
         .input-section {
-            background: var(--secondary-bg);
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
+            margin-bottom: 64px;
+            text-align: center;
         }
 
-        .section-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: var(--text-primary);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
+        .input-description {
+            font-size: 18px;
             color: var(--text-secondary);
+            margin-bottom: 32px;
+            font-weight: 300;
         }
 
         .textarea {
             width: 100%;
-            min-height: 200px;
-            padding: 15px;
-            border: 2px solid var(--border-color);
-            border-radius: 12px;
+            min-height: 300px;
+            padding: 24px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
             font-family: inherit;
-            font-size: 14px;
+            font-size: 16px;
             background: var(--primary-bg);
             color: var(--text-primary);
             resize: vertical;
-            transition: all 0.3s ease;
+            transition: border-color 0.2s ease;
+            font-weight: 300;
+            line-height: 1.8;
         }
 
         .textarea:focus {
             outline: none;
-            border-color: var(--accent-primary);
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            border-color: var(--accent);
         }
 
-        .input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid var(--border-color);
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 14px;
-            background: var(--primary-bg);
-            color: var(--text-primary);
-            transition: all 0.3s ease;
-        }
-
-        .input:focus {
-            outline: none;
-            border-color: var(--accent-primary);
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        .textarea::placeholder {
+            color: var(--text-secondary);
+            font-style: italic;
         }
 
         .btn {
-            background: var(--gradient);
+            background: var(--accent);
             color: white;
             border: none;
-            padding: 12px 24px;
+            padding: 16px 32px;
             border-radius: 8px;
-            font-weight: 600;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 500;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 14px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+            transition: all 0.2s ease;
+            font-size: 16px;
+            margin-top: 24px;
+            min-width: 160px;
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
+            background: #005a99;
         }
 
         .btn:disabled {
             opacity: 0.6;
             cursor: not-allowed;
-            transform: none;
-        }
-
-        .btn-secondary {
-            background: var(--secondary-bg);
-            color: var(--text-primary);
-            border: 2px solid var(--border-color);
-        }
-
-        .btn-secondary:hover {
-            background: var(--border-color);
         }
 
         /* Results Section */
         .results-section {
-            background: var(--secondary-bg);
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
             display: none;
+            margin-top: 64px;
         }
 
         .results-section.show {
             display: block;
-            animation: slideIn 0.5s ease;
+            animation: fadeIn 0.3s ease;
         }
 
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Entity Summary */
-        .entity-summary {
-            margin-bottom: 30px;
-        }
-
-        .entity-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .stat-card {
-            background: var(--primary-bg);
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow);
-        }
-
-        .stat-value {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--accent-primary);
-        }
-
-        .stat-label {
-            font-size: 12px;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            font-weight: 500;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* Entity Filters */
         .entity-filters {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
+            gap: 8px;
+            margin-bottom: 32px;
+            justify-content: center;
         }
 
         .entity-filter {
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 24px;
+            font-size: 14px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 400;
             cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
+            transition: all 0.2s ease;
+            border: 1px solid var(--border-color);
             background: var(--primary-bg);
             color: var(--text-secondary);
         }
 
         .entity-filter.active {
             color: white;
-            transform: scale(1.05);
+            border-color: transparent;
         }
 
         .entity-filter:hover {
-            transform: scale(1.05);
+            border-color: var(--accent);
         }
 
-        /* Entity Colors */
-        .entity-PERSON, .entity-filter[data-entity="PERSON"].active { background: #f56565; border-color: #f56565; }
-        .entity-ORG, .entity-filter[data-entity="ORG"].active { background: #48bb78; border-color: #48bb78; }
-        .entity-GPE, .entity-filter[data-entity="GPE"].active { background: #667eea; border-color: #667eea; }
-        .entity-DATE, .entity-filter[data-entity="DATE"].active { background: #ed8936; border-color: #ed8936; }
-        .entity-MONEY, .entity-filter[data-entity="MONEY"].active { background: #38b2ac; border-color: #38b2ac; }
-        .entity-PRODUCT, .entity-filter[data-entity="PRODUCT"].active { background: #9f7aea; border-color: #9f7aea; }
-        .entity-LAW, .entity-filter[data-entity="LAW"].active { background: #ec4899; border-color: #ec4899; }
-        .entity-EMAIL, .entity-filter[data-entity="EMAIL"].active { background: #06b6d4; border-color: #06b6d4; }
+        /* Entity Colors - Minimal palette */
+        .entity-PERSON, .entity-filter[data-entity="PERSON"].active { background: #e74c3c; }
+        .entity-ORG, .entity-filter[data-entity="ORG"].active { background: #3498db; }
+        .entity-GPE, .entity-filter[data-entity="GPE"].active { background: #9b59b6; }
+        .entity-DATE, .entity-filter[data-entity="DATE"].active { background: #f39c12; }
+        .entity-MONEY, .entity-filter[data-entity="MONEY"].active { background: #1abc9c; }
+        .entity-PRODUCT, .entity-filter[data-entity="PRODUCT"].active { background: #34495e; }
+        .entity-LAW, .entity-filter[data-entity="LAW"].active { background: #e67e22; }
+        .entity-EMAIL, .entity-filter[data-entity="EMAIL"].active { background: #2ecc71; }
+        .entity-MISC, .entity-filter[data-entity="MISC"].active { background: #95a5a6; }
 
         /* Policy Text */
         .policy-text {
-            background: var(--primary-bg);
-            border-radius: 12px;
-            padding: 25px;
+            background: var(--secondary-bg);
+            border-radius: 8px;
+            padding: 32px;
             border: 1px solid var(--border-color);
             line-height: 1.8;
             font-size: 16px;
+            font-weight: 300;
+            max-width: 100%;
+            box-shadow: var(--shadow);
         }
 
         .sentence {
-            margin-bottom: 15px;
-            padding: 10px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
+            margin-bottom: 16px;
             position: relative;
-        }
-
-        .sentence:hover {
-            background: rgba(102, 126, 234, 0.05);
         }
 
         .sentence.hidden {
@@ -336,46 +223,80 @@
         }
 
         .entity-highlight {
-            padding: 2px 4px;
+            padding: 2px 6px;
             border-radius: 4px;
-            font-weight: 500;
+            font-weight: 400;
             position: relative;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: opacity 0.2s ease;
+            color: white;
         }
 
         .entity-highlight:hover {
-            transform: scale(1.05);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0.8;
         }
 
         .entity-tooltip {
             position: absolute;
-            bottom: 100%;
+            bottom: calc(100% + 8px);
             left: 50%;
             transform: translateX(-50%);
             background: var(--text-primary);
             color: var(--primary-bg);
-            padding: 6px 10px;
+            padding: 8px 12px;
             border-radius: 6px;
             font-size: 12px;
             white-space: nowrap;
             opacity: 0;
             pointer-events: none;
-            transition: all 0.3s ease;
+            transition: opacity 0.2s ease;
             z-index: 10;
+            box-shadow: var(--shadow-md);
+        }
+
+        .entity-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 4px solid transparent;
+            border-top-color: var(--text-primary);
         }
 
         .entity-highlight:hover .entity-tooltip {
             opacity: 1;
-            transform: translateX(-50%) translateY(-5px);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 96px;
+            padding: 32px 0;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        .footer-link {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-link:hover {
+            color: #005a99;
         }
 
         /* Loading */
         .loading {
             display: none;
             text-align: center;
-            padding: 40px;
+            padding: 48px 0;
         }
 
         .loading.show {
@@ -383,13 +304,13 @@
         }
 
         .spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid var(--border-color);
-            border-top: 4px solid var(--accent-primary);
+            width: 32px;
+            height: 32px;
+            border: 2px solid var(--border-color);
+            border-top: 2px solid var(--accent);
             border-radius: 50%;
             animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
+            margin: 0 auto 16px;
         }
 
         @keyframes spin {
@@ -397,39 +318,43 @@
             100% { transform: rotate(360deg); }
         }
 
+        .loading-text {
+            color: var(--text-secondary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 300;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .container {
-                padding: 0 15px;
+                padding: 0 16px;
+            }
+
+            .logo {
+                font-size: 36px;
             }
 
             .header-content {
                 flex-direction: column;
-                gap: 15px;
+                gap: 16px;
+            }
+            
+            .github-link {
+                margin: 0;
             }
 
-            .entity-stats {
-                grid-template-columns: 1fr;
+            .main {
+                padding: 32px 0;
             }
 
-            .entity-filters {
-                justify-content: center;
+            .textarea {
+                min-height: 240px;
+                padding: 16px;
             }
-        }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .animate-pulse {
-            animation: pulse 2s infinite;
+            .policy-text {
+                padding: 24px;
+            }
         }
     </style>
 </head>
@@ -437,12 +362,8 @@
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <a href="#" class="logo">🔍 Privacy Policy Analyzer</a>
-                <div class="header-controls">
-                    <button class="theme-toggle" onclick="toggleTheme()">
-                        <span id="theme-icon">🌙</span>
-                    </button>
-                </div>
+                <a href="#" class="logo">Jargon</a>
+                <a href="https://github.com/kernelism" class="github-link" target="_blank">⭐ Star on GitHub</a>
             </div>
         </div>
     </header>
@@ -450,47 +371,29 @@
     <main class="main">
         <div class="container">
             <div class="input-section">
-                <h2 class="section-title">Analyze Privacy Policy</h2>
-                <div class="form-group">
-                    <label class="form-label" for="policy-text">Privacy Policy Text</label>
-                    <textarea 
-                        id="policy-text" 
-                        class="textarea" 
-                        placeholder="Paste your privacy policy text here for entity analysis..."
-                    ></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="model-path">Model Path (optional)</label>
-                    <input 
-                        id="model-path" 
-                        class="input" 
-                        type="text" 
-                        value="../model" 
-                        placeholder="Path to trained NER model"
-                    />
-                </div>
+                <textarea 
+                    id="policy-text" 
+                    class="textarea" 
+                    placeholder="Paste your privacy policy, terms of service, or any legal document here to analyze and identify key entities..."
+                ></textarea>
+                <input 
+                    id="model-path" 
+                    type="hidden" 
+                    value="/Users/arjuns/Downloads/tnc/model"
+                />
                 <button class="btn" onclick="analyzePolicy()">
-                    <span>🔍</span>
-                    Analyze Policy
+                    Analyze Text
                 </button>
             </div>
 
             <div class="loading" id="loading">
                 <div class="spinner"></div>
-                <p>Analyzing privacy policy text...</p>
+                <p class="loading-text">Analyzing text...</p>
             </div>
 
             <div class="results-section" id="results">
-                <h2 class="section-title">Analysis Results</h2>
-                
-                <div class="entity-summary">
-                    <div class="entity-stats" id="entity-stats">
-                        <!-- Stats will be populated here -->
-                    </div>
-                    
-                    <div class="entity-filters" id="entity-filters">
-                        <!-- Filters will be populated here -->
-                    </div>
+                <div class="entity-filters" id="entity-filters">
+                    <!-- Filters will be populated here -->
                 </div>
 
                 <div class="policy-text" id="policy-display">
@@ -500,36 +403,17 @@
         </div>
     </main>
 
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">
+                Made with ❤️ by <a href="https://github.com/kernelism" class="footer-link" target="_blank">Kernelism</a>
+            </p>
+        </div>
+    </footer>
+
     <script>
         let currentData = null;
         let activeFilters = new Set();
-
-        // Theme management
-        function toggleTheme() {
-            const body = document.body;
-            const themeIcon = document.getElementById('theme-icon');
-            
-            if (body.getAttribute('data-theme') === 'dark') {
-                body.removeAttribute('data-theme');
-                themeIcon.textContent = '🌙';
-                localStorage.setItem('theme', 'light');
-            } else {
-                body.setAttribute('data-theme', 'dark');
-                themeIcon.textContent = '☀️';
-                localStorage.setItem('theme', 'dark');
-            }
-        }
-
-        // Initialize theme
-        function initTheme() {
-            const savedTheme = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            
-            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-                document.body.setAttribute('data-theme', 'dark');
-                document.getElementById('theme-icon').textContent = '☀️';
-            }
-        }
 
         // Analyze policy
         async function analyzePolicy() {
@@ -577,34 +461,10 @@
 
         // Display results
         function displayResults(data) {
-            displayStats(data);
             displayFilters(data);
             displayPolicyText(data);
             
             document.getElementById('results').classList.add('show');
-        }
-
-        // Display statistics
-        function displayStats(data) {
-            const statsContainer = document.getElementById('entity-stats');
-            const entityCounts = data.entity_summary;
-            
-            let statsHTML = `
-                <div class="stat-card">
-                    <div class="stat-value">${data.total_entities}</div>
-                    <div class="stat-label">Total Entities</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">${data.sentences.length}</div>
-                    <div class="stat-label">Sentences</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">${Object.keys(entityCounts).length}</div>
-                    <div class="stat-label">Entity Types</div>
-                </div>
-            `;
-            
-            statsContainer.innerHTML = statsHTML;
         }
 
         // Display entity filters
@@ -696,35 +556,10 @@
             }
         }
 
-        // Add sample text for demo
-        function addSampleText() {
-            const sampleText = `
-We collect personal information when you use our services. This includes your name, email address, and location data. 
-We may share this information with our business partners including Google Inc. and Facebook Inc. 
-Your data is stored securely and we comply with GDPR regulations. 
-We retain your information for up to 5 years or as required by law. 
-You can contact us at privacy@company.com for any questions about this policy.
-For more information, visit our website at https://company.com or call us at +1-555-0123.
-This policy is effective as of January 1, 2024.
-            `.trim();
-            
-            document.getElementById('policy-text').value = sampleText;
-        }
-
         // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
-            initTheme();
-            
-            // Add sample text button
-            const inputSection = document.querySelector('.input-section');
-            const sampleBtn = document.createElement('button');
-            sampleBtn.className = 'btn btn-secondary';
-            sampleBtn.innerHTML = '<span>📄</span> Load Sample Text';
-            sampleBtn.style.marginLeft = '10px';
-            sampleBtn.onclick = addSampleText;
-            
-            const analyzeBtn = inputSection.querySelector('.btn');
-            analyzeBtn.parentNode.insertBefore(sampleBtn, analyzeBtn.nextSibling);
+            // Focus on textarea
+            document.getElementById('policy-text').focus();
         });
 
         // Handle enter key in textarea
